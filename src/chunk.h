@@ -2,7 +2,6 @@
 #define starscript_chunk_h
 
 #include "common.h"
-/* #include <cstdint> */
 
 typedef enum {
   OP_RETURN,
