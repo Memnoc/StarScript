@@ -10,7 +10,7 @@ The language of choice is C, which I really like in mostly unexpected ways.
 
 This implementation of clox, like the code it was based on, is available under the MIT license, copyright Matteo Stara; see [LICENSE.txt](https://github.com/Memnoc/StarScript/blob/main/LICENSE).
 
-The original code of clox upon which this is based is available under the MIT license, copyright Robert Nystrom; see LICENSE.lox.txt.
+The original code of clox upon which this is based is available under the MIT license, copyright Robert Nystrom; see [LICENSE.lox.txt](https://github.com/Memnoc/StarScript/blob/main/LICENSE.clox.txt).
 
 # See Also
 
