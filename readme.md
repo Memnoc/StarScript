@@ -2,7 +2,9 @@
 
 Starting this little project to explore the world of programming languages from the point of view of their inner working.
 
-I will start following the book Crafting Interpreters by Robert Nystrom, and then expand from there.
+I will start following the book Crafting Interpreters by Robert Nystrom, and then expand from there. The first iteration will be just like clox and then I am gonna try to add some more stuff as instrcuted in the challenges in each chapter.
+
+When I feel more confident in the topic and in C, I can re-implement everything but this time giving my own spin.
 
 The language of choice is C, which I really like in mostly unexpected ways.
 
