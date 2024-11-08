@@ -28,3 +28,5 @@ void freeValueArray(ValueArray *array) {
   FREE_ARRAY(Value, array->values, array->capacity);
   initValueArray(array);
 }
+
+void printValue(Value value) { printf("%g", value); }
