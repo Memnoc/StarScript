@@ -9,10 +9,31 @@
 VM vm; // declaring a one single global VM it's easier from a memory management
        // perspective
 
-void initVM() {}
+static void resetStack() { vm.stackTop = vm.stack; }
+
+void initVM() { resetStack(); }
 
 void freeVM() {}
 
+/*
+ * STACK PROTOCOL - INSTRUCTION 1
+ * Push values at the top of the stack
+ *
+ * */
+void push(Value value) {
+  *vm.stackTop = value;
+  vm.stackTop++;
+}
+
+/*
+ * STACK PROTOCOL - INSTRUCTION 2
+ * Pop values from the stack
+ *
+ * */
+Value pop() {
+  vm.stackTop--;
+  return *vm.stackTop;
+}
 /*
  * DECODING/DI1PATCHING instructions
  *
