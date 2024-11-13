@@ -45,6 +45,8 @@ static InterpretResult run() {
   }
 
 #undef READ_BYTE
+#undef READ_CONSTANT // undefine the macros to maintain the scope limted to
+                     // run()
 }
 
 InterpretResult interpret(Chunk *chunk) {
