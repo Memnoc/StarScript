@@ -6,6 +6,7 @@
 
 typedef enum {
   OP_CONSTANT, // know which constant to load
+  OP_NEGATE,
   OP_RETURN,
 } OpCode;
 
