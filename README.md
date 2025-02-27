@@ -8,6 +8,13 @@ When I feel more confident in the topic and in C, I can re-implement everything 
 
 The language of choice is C, which I really like in mostly unexpected ways.
 
+## Build commands
+
+Assuming you have CMake installed:
+`cmake ..` -> generate the build system
+`cmake --build` -> build the project
+`./starscript` -> run the binary
+
 # Licenses
 
 This implementation of clox, like the code it was based on, is available under the MIT license, copyright Matteo Stara; see [LICENSE.txt](https://github.com/Memnoc/StarScript/blob/main/LICENSE).
