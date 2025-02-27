@@ -1,0 +1,4 @@
+/home/memnoc/Code/StarScript/build/CMakeFiles/starscript.dir
+/home/memnoc/Code/StarScript/build/CMakeFiles/clean_all.dir
+/home/memnoc/Code/StarScript/build/CMakeFiles/edit_cache.dir
+/home/memnoc/Code/StarScript/build/CMakeFiles/rebuild_cache.dir

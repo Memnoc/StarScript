@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Wl,--dependency-file=CMakeFiles/starscript.dir/link.d CMakeFiles/starscript.dir/src/chunk.c.o CMakeFiles/starscript.dir/src/debug.c.o CMakeFiles/starscript.dir/src/main.c.o CMakeFiles/starscript.dir/src/memory.c.o CMakeFiles/starscript.dir/src/value.c.o CMakeFiles/starscript.dir/src/vm.c.o -o bin/starscript  -lm
