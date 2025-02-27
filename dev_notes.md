@@ -1,32 +1,59 @@
 # Development notes
 
-Would be nice to tell you how to run this thing. There is a make file, and it generates an executable at `EXECUTABLE = $(BIN_DIR)/starscript`
-All you have to do is target the exec in bin `cd bin` and run it as `./starscript`
+### Header Files Overview
 
-I thought it would be nice to put some notes here on the interesting things I am learning from the book and from my online research.
+- **[vm.h](https://github.com/Memnoc/StarScript/blob/main/src/vm.h)**
 
-**Bytecode**
-Structurally, it resembles machine code. It's an idealized fantasy instruction set to facilitate the compiler architecture complexity and portability.
+  - Defines the `VM` structure, which includes a chunk of bytecode, instruction pointer, stack, and stack top.
+  - Enumerates possible interpretation results (`INTERPRET_OK`, `INTERPRET_COMPILE_ERROR`, `INTERPRET_RUNTIME_ERROR`).
+  - Declares functions for VM initialization, freeing, interpreting chunks, pushing, and popping values.
 
-**Emulator (VM)**
-To read bytecode, you need a virtual machine or VM. We write our emulator in C because it's present in practically all machines, so that means our compiler has enormous portability.
+- **[common.h](https://github.com/Memnoc/StarScript/blob/main/src/common.h)**
 
-## Encoding and decoding patterns
+  - Includes standard libraries and defines common macros and type definitions used across the project.
+  - Defines `DEBUG_TRACE_EXECUTION` for debugging purposes.
 
-**Module to create chunks of bytecode**
-This is essentially the representation of our code. It controls what kind of instructions we are dealing with. It creates chunks of bytecode.
-`memory.c`
-`memory.h`
-`chunk.h`
-`chunk.c`
+- **[value.h](https://github.com/Memnoc/StarScript/blob/main/src/value.h)**
 
-**Disassembler to have an internal representation of the code**
-Given a chunk, it will print out all of the instructions in it.
-`debug.h`
-`debug.c`
+  - Defines the `Value` type and `ValueArray` structure for storing and managing values.
+  - Declares functions for initializing, writing to, freeing, and printing values in a `ValueArray`.
 
-## Storing value technique
+- **[debug.h](https://github.com/Memnoc/StarScript/blob/main/src/debug.h)**
 
-**Constants pool**
-To store values like constants, the technique used here is similar to what Java VM uses: associating a _constant pool_ to each compiled class.
-Therefore, all constants in Starscript, each chunk will carry a list of values that appear as literals in the program, and to keep things simpler, we store all the constants there. The constants pool is an array of values.
+  - Declares functions for disassembling chunks and instructions for debugging purposes.
+
+- **[memory.h](https://github.com/Memnoc/StarScript/blob/main/src/memory.h)**
+
+  - Defines macros for managing memory allocation and resizing arrays.
+  - Declares the `reallocate` function for reallocating memory.
+
+- **[chunk.h](https://github.com/Memnoc/StarScript/blob/main/src/chunk.h)**
+  - Defines the `OpCode` enum for different operation codes (`OP_CONSTANT`, `OP_NEGATE`, `OP_RETURN`).
+  - Defines the `Chunk` structure for storing bytecode and associated metadata.
+  - Declares functions for initializing, freeing, writing to chunks, and adding constants.
+
+### Source Files Overview
+
+- **[vm.c](https://github.com/Memnoc/StarScript/blob/main/src/vm.c)**
+
+  - Implements VM initialization, stack management, and the main interpretation loop.
+  - Defines macros for reading bytes and constants from the bytecode.
+
+- **[memory.c](https://github.com/Memnoc/StarScript/blob/main/src/memory.c)**
+
+  - Implements the `reallocate` function for managing memory.
+
+- **[debug.c](https://github.com/Memnoc/StarScript/blob/main/src/debug.c)**
+
+  - Implements functions for disassembling chunks and instructions, providing a readable representation of bytecode.
+
+- **[chunk.c](https://github.com/Memnoc/StarScript/blob/main/src/chunk.c)**
+
+  - Implements functions for initializing, freeing, and writing to chunks, as well as adding constants.
+
+- **[value.c](https://github.com/Memnoc/StarScript/blob/main/src/value.c)**
+
+  - Implements functions for managing `ValueArray` structures, including initialization, writing, freeing, and printing values.
+
+- **[main.c](https://github.com/Memnoc/StarScript/blob/main/src/main.c)**
+  - Initializes the VM, creates a test chunk of bytecode, compiles instructions into the chunk, and interprets the chunk using the VM.
